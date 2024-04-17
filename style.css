@@ -1,0 +1,7 @@
+body {
+  overflow-x: auto; /* Horizontal scrolling for the entire page */
+}
+.header {
+  position: fixed;
+  height: 200px;
+}
