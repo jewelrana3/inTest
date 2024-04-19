@@ -18,6 +18,15 @@ function imgList() {
     itemList.style.display = "none";
   }
 }
+// imgList section2
+function imgList2() {
+  let itemList = document.getElementById("imgListId2");
+  if (itemList.style.display === "none") {
+    itemList.style.display = "block";
+  } else {
+    itemList.style.display = "none";
+  }
+}
 
 // Get the modal
 let modal = document.getElementById("myModal");
@@ -50,15 +59,6 @@ function closeModal() {
   modal.style.display = "none";
 }
 
-// Get the moon icon element
-// const iconDark = document.getElementById("icon-dark");
-
-// Toggle between light and dark mode when clicking the moon icon
-// iconDark.addEventListener("click", function () {
-// Toggle the dark-mode class on the body
-//   document.body.classList.toggle("dark");
-// });
-
 // Function to toggle dark mode and change icon
 function toggleDarkMode() {
   var body = document.body;
@@ -82,13 +82,14 @@ document.getElementById("icon-dark").addEventListener("click", function () {
 
 // side ber menu
 function w3_open() {
-  document.getElementById("main").style.marginLeft = "%";
-  document.getElementById("mySidebar").style.width = "25%";
-  document.getElementById("mySidebar").style.display = "";
-  document.getElementById("openNav").style.display = "none";
+  document.getElementById("main").style.marginLeft = "2%"; // Move the main content 25% to the right
+  document.getElementById("mySidebar").style.width = "30px"; // Set the width of the sidebar to 25%
+  document.getElementById("mySidebar").style.display = "block"; // Display the sidebar
+  document.getElementById("openNav").style.display = "none"; // Hide the openNav button
 }
+
 function w3_close() {
-  document.getElementById("main").style.marginLeft = "0%";
-  document.getElementById("mySidebar").style.display = "none";
-  document.getElementById("openNav").style.display = "inline-block";
+  document.getElementById("main").style.marginLeft = "0"; // Reset the margin of the main content
+  document.getElementById("mySidebar").style.display = "none"; // Hide the sidebar
+  document.getElementById("openNav").style.display = "inline-block"; // Display the openNav button
 }

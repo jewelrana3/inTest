@@ -2,6 +2,17 @@
   box-sizing: border-box;
 }
 
+.teer {
+  display: inline-block;
+  left: 0rem;
+  position: relative;
+  top: 0rem;
+  -webkit-transition: all 0.3s ease-in-out 0s;
+  transition: all 0.3s ease-in-out 0s;
+  width: 1.625rem;
+  z-index: 999;
+}
+
 body {
   overflow-x: auto; /* Horizontal scrolling for the entire page */
 }
