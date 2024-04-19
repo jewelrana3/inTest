@@ -51,19 +51,40 @@ function closeModal() {
 }
 
 // Get the moon icon element
-const iconDark = document.getElementById("icon-dark");
+// const iconDark = document.getElementById("icon-dark");
 
 // Toggle between light and dark mode when clicking the moon icon
-iconDark.addEventListener("click", function () {
-  // Toggle the dark-mode class on the body
-  document.body.classList.toggle("dark-mode");
+// iconDark.addEventListener("click", function () {
+// Toggle the dark-mode class on the body
+//   document.body.classList.toggle("dark");
+// });
+
+// Function to toggle dark mode and change icon
+function toggleDarkMode() {
+  var body = document.body;
+  var icon = document.getElementById("icon-dark");
+  body.classList.toggle("dark");
+  if (body.classList.contains("dark")) {
+    icon.classList.remove("fa-moon");
+    icon.classList.add("fa-sun");
+    icon.classList.add("text-white"); // Add white color for moon icon
+  } else {
+    icon.classList.remove("fa-sun");
+    icon.classList.remove("text-white"); // Remove white color for sun icon
+    icon.classList.add("fa-moon");
+  }
+}
+
+// Event listener for clicking the icon
+document.getElementById("icon-dark").addEventListener("click", function () {
+  toggleDarkMode();
 });
 
 // side ber menu
 function w3_open() {
-  document.getElementById("main").style.marginLeft = "25%";
+  document.getElementById("main").style.marginLeft = "%";
   document.getElementById("mySidebar").style.width = "25%";
-  document.getElementById("mySidebar").style.display = "block";
+  document.getElementById("mySidebar").style.display = "";
   document.getElementById("openNav").style.display = "none";
 }
 function w3_close() {
