@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html class="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
@@ -22,6 +23,34 @@
   </head>
   <body>
     <!-- navber section -->
+    <div
+      class="w3-sidebar w3-bar-block w3-card w3-animate-left"
+      style="display: none"
+      id="mySidebar"
+    >
+      <button class="w3-bar-item w3-button w3-large" onclick="w3_close()">
+        Close &times;
+      </button>
+      <a href="#" class="w3-bar-item w3-button">Link 1</a>
+      <a href="#" class="w3-bar-item w3-button">Link 2</a>
+      <a href="#" class="w3-bar-item w3-button">Link 3</a>
+    </div>
+
+    <div id="main">
+      <div class="w3-teal">
+        <button
+          id="openNav"
+          class="w3-button w3-teal w3-xlarge"
+          onclick="w3_open()"
+        >
+          &#9776;
+        </button>
+        <div class="w3-container">
+          <h1>My Page</h1>
+        </div>
+      </div>
+    </div>
+
     <nav class="bg-green-400 p-4 relative">
       <div class="flex justify-between items-center">
         <!-- Logo -->
@@ -32,59 +61,252 @@
           </div>
         </div>
 
-        <!-- Navigation Links -->
-
         <!-- Search Bar -->
-        <div class="flex items-center">
-          <input
-            type="text"
-            placeholder="Search"
-            class="bg-gray-700 text-white rounded-md px-3 py-1 focus:outline-none"
-          />
-
-          <div class="ml-8 bg-green-900">
+        <div class="flex items-center justify-between">
+          <div class="relative">
+            <input
+              type="text"
+              placeholder="Search"
+              class="bg-gray-700 text-white rounded-md pl-10 pr-3 py-1 focus:outline-none"
+            />
             <i
-              class="fa fa-plus p-3 rounded-md"
-              aria-hidden="true"
-              style="color: white"
+              class="fa fa-search absolute top-2 right-4 text-gray-400 hover:text-orange-500 cursor-pointer"
             ></i>
+          </div>
+
+          <div class="ml-8">
+            <button
+              id="openModalButton"
+              class="rounded-lg bg-green-900 border-none"
+            >
+              <i class="fa fa-plus p-3 text-white" aria-hidden="true"></i>
+            </button>
+          </div>
+
+          <!-- Modal -->
+          <div id="myModal" class="modal mt-48 absolute">
+            <div
+              class="modal-content rounded-md bg-white p-4 -ml-40"
+              style="width: 900px"
+            >
+              <div class="flex justify-between py-1">
+                <div>Job Title</div>
+                <div>
+                  <span id="closeBtn" class="close text-4xl cursor-pointer"
+                    >&times</span
+                  >
+                </div>
+              </div>
+              <hr />
+              <p class="py-4 text-gray-500">Hellow</p>
+
+              <hr class="mt-5" />
+              <div class="text-right mt-2">
+                <button
+                  id="closeModalBtn"
+                  class="bg-red-100 mr-4 rounded-md p-1 px-3 text-orange-500 close"
+                >
+                  close</button
+                ><button
+                  class="bg-red-500 rounded-md p-1 px-3 text-white border-4 border-red-200"
+                >
+                  Save Change
+                </button>
+              </div>
+            </div>
           </div>
         </div>
 
         <!-- Notification Icon -->
-        <div class="flex items-center space-x-2">
-          <i class="fa fa-moon-o" aria-hidden="true"></i>
-        </div>
+
         <div class="flex items-center">
-          <div>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              onclick="toggleItemList()"
-              class="cursor-pointer"
-            >
-              <g data-name="Layer 2" transform="translate(-2 -2)">
-                <path
-                  id="Path_20"
-                  data-name="Path 20"
-                  d="M22.571,15.8V13.066a8.5,8.5,0,0,0-7.714-8.455V2.857a.857.857,0,0,0-1.714,0V4.611a8.5,8.5,0,0,0-7.714,8.455V15.8A4.293,4.293,0,0,0,2,20a2.574,2.574,0,0,0,2.571,2.571H9.8a4.286,4.286,0,0,0,8.4,0h5.23A2.574,2.574,0,0,0,26,20,4.293,4.293,0,0,0,22.571,15.8ZM7.143,13.066a6.789,6.789,0,0,1,6.78-6.78h.154a6.789,6.789,0,0,1,6.78,6.78v2.649H7.143ZM14,24.286a2.567,2.567,0,0,1-2.413-1.714h4.827A2.567,2.567,0,0,1,14,24.286Zm9.429-3.429H4.571A.858.858,0,0,1,3.714,20a2.574,2.574,0,0,1,2.571-2.571H21.714A2.574,2.574,0,0,1,24.286,20a.858.858,0,0,1-.857.857Z"
-                ></path>
-              </g>
-            </svg>
+          <div class="flex gap-4 cursor-pointer">
+            <div>
+              <!-- Moon icon to toggle dark mode -->
+              <i id="icon-dark" class="fas fa-moon cursor-pointer"></i>
+            </div>
+            <div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                onclick="toggleItemList()"
+                class="cursor-pointer"
+              >
+                <g data-name="Layer 2" transform="translate(-2 -2)">
+                  <path
+                    id="Path_20"
+                    data-name="Path 20"
+                    d="M22.571,15.8V13.066a8.5,8.5,0,0,0-7.714-8.455V2.857a.857.857,0,0,0-1.714,0V4.611a8.5,8.5,0,0,0-7.714,8.455V15.8A4.293,4.293,0,0,0,2,20a2.574,2.574,0,0,0,2.571,2.571H9.8a4.286,4.286,0,0,0,8.4,0h5.23A2.574,2.574,0,0,0,26,20,4.293,4.293,0,0,0,22.571,15.8ZM7.143,13.066a6.789,6.789,0,0,1,6.78-6.78h.154a6.789,6.789,0,0,1,6.78,6.78v2.649H7.143ZM14,24.286a2.567,2.567,0,0,1-2.413-1.714h4.827A2.567,2.567,0,0,1,14,24.286Zm9.429-3.429H4.571A.858.858,0,0,1,3.714,20a2.574,2.574,0,0,1,2.571-2.571H21.714A2.574,2.574,0,0,1,24.286,20a.858.858,0,0,1-.857.857Z"
+                  ></path>
+                </g>
+              </svg>
+            </div>
+            <div>
+              <img
+                onclick="imgList()"
+                class="h-6 w-6"
+                src="https://i.ibb.co/7RhW3px/pic1.jpg"
+                alt="pic"
+              />
+            </div>
           </div>
+
+          <!-- notification list -->
           <div
             id="itemList"
-            class="absolute right-0 top-full mt-2 bg-gray-100 p-4 rounded-lg"
+            class="absolute right-20 top-full mt-2 bg-gray-100 p-4 rounded-lg"
             style="display: none"
           >
-            <ul>
-              <li class="mb-2">Item 1</li>
-              <li class="mb-2">Item 2</li>
-              <li class="mb-2">Item 3</li>
-              <!-- Add more items here -->
-            </ul>
+            <div class="mb-2 flex gap-2">
+              <img
+                class="w-10 rounded-md"
+                src="https://i.ibb.co/7RhW3px/pic1.jpg"
+                alt="pic"
+              />
+              <div>
+                <h2 class="text-sm font-semibold">Dr sultads Send you Photo</h2>
+                <p class="text-sm text-gray-500">29 July 2020 - 02:26 PM</p>
+              </div>
+            </div>
+            <hr class="my-4" />
+
+            <div class="mb-2 flex gap-2">
+              <div
+                class="bg-pink-400 p-2 text-pink-700 font-semibold rounded-md"
+              >
+                KG
+              </div>
+              <div>
+                <h2 class="text-sm font-semibold">Dr sultads Send you Photo</h2>
+                <p class="text-sm">29 July 2020 - 02:26 PM</p>
+              </div>
+            </div>
+            <hr class="my-4" />
+
+            <div class="mb-2 flex gap-2">
+              <div>
+                <i
+                  class="fa fa-home text-green-400 bg-green-200 rounded-md p-3"
+                ></i>
+              </div>
+              <div>
+                <h2 class="text-sm font-semibold">Dr sultads Send you Photo</h2>
+                <p class="text-sm text-gray-500">29 July 2020 - 02:26 PM</p>
+              </div>
+            </div>
+            <hr class="my-4" />
+
+            <div class="mb-2 flex gap-2">
+              <img
+                class="w-10 rounded-md"
+                src="https://i.ibb.co/7RhW3px/pic1.jpg"
+                alt="pic"
+              />
+              <div>
+                <h2 class="text-sm font-semibold">Dr sultads Send you Photo</h2>
+                <p class="text-sm">29 July 2020 - 02:26 PM</p>
+              </div>
+            </div>
+            <hr class="my-4" />
+            <div class="mb-2 flex gap-2">
+              <div
+                class="bg-orange-400 p-2 text-orange-700 font-semibold rounded-md"
+              >
+                KG
+              </div>
+              <div>
+                <h2 class="text-sm font-semibold">Dr sultads Send you Photo</h2>
+                <p class="text-sm text-gray-500">29 July 2020 - 02:26 PM</p>
+              </div>
+            </div>
+            <hr class="my-4" />
+            <div class="mb-2 flex gap-2">
+              <div>
+                <i
+                  class="fa fa-home text-orange-500 bg-orange-200 rounded-md p-3"
+                ></i>
+              </div>
+              <div>
+                <h2 class="text-sm font-semibold">Dr sultads Send you Photo</h2>
+                <p class="text-sm">29 July 2020 - 02:26 PM</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- imglist  -->
+          <div
+            id="imgListId"
+            class="absolute right-6 top-full mt-2 bg-white p-4 rounded-lg w-32"
+            style="display: none"
+          >
+            <div class="mb-2 flex gap-2 mr-28">
+              <div>
+                <svg
+                  id="icon-user2"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="text-red-500"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+              </div>
+              <div>Profile</div>
+            </div>
+            <div class="mb-2 flex gap-2">
+              <div>
+                <svg
+                  id="icon-inbox1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="text-green-400"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                  ></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+              </div>
+              <div>Inbox</div>
+            </div>
+            <div class="mb-2 flex gap-2">
+              <div>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="text-red-500"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                  <polyline points="16 17 21 12 16 7"></polyline>
+                  <line x1="21" y1="12" x2="9" y2="12"></line>
+                </svg>
+              </div>
+              <div>LogOut</div>
+            </div>
+            <!-- Add more items here -->
           </div>
         </div>
       </div>
@@ -102,25 +324,34 @@
       <!-- invoice details -->
       <div class="bg-white ml-14 p-4 w-11/12 mx-auto px-6 rounded-md mt-10">
         <div class="flex justify-between items-center">
-          <p>Invoice</p>
-          <p>01/01/01/2018</p>
-          <p>Status: Pending</p>
+          <p class="text-gray-400 text-sm">Invoice</p>
+          <p class="font-bold text-gray-500 text-sm">01/01/01/2018</p>
+          <p class="text-gray-400 text-sm">
+            <span class="font-bold text-gray-500">Status</span>: Pending
+          </p>
         </div>
         <hr class="mt-8" />
 
         <!-- form to jobick details -->
         <div class="flex justify-between items-center">
           <div>
-            Webz Poland <br />
-            Madalinskiego 8 <br />
-            71-101 Szczecin, Poland <br />Email: info@webz.com.pl <br />Phone:
-            +48 444 666 3333
+            <p class="">From:</p>
+            <span class="font-bold text-gray-500">Webz Poland</span> <br />
+            <p class="text-sm text-gray-400">
+              Madalinskiego 8 <br />
+              71-101 Szczecin, Poland <br />Email: info@webz.com.pl <br />Phone:
+              +48 444 666 3333
+            </p>
           </div>
           <div>
-            Webz Poland <br />
-            Madalinskiego 8 <br />
-            71-101 Szczecin, Poland <br />Email: info@webz.com.pl <br />Phone:
-            +48 444 666 3333
+            <p class="">To:</p>
+            <span class="font-bold text-gray-500">Bob Mart</span> <br />
+            <p class="text-sm text-gray-400">
+              Attn: Daniel Marek <br />
+              43-190 Mikolow, Poland <br />
+              Email: marek@daniel.com <br />
+              Phone: +48 123 456 789 <br />
+            </p>
           </div>
 
           <div class="flex justify-between items-center">
@@ -130,15 +361,22 @@
                   <img src="https://i.ibb.co/sjfH5Bk/logo.png" alt="pic" />
                 </div>
                 <div>
-                  <h1 class="font-bold text-gray-700 text-4xl">Jobick</h1>
-                  <p class="text-sm">Job Admin Dashboard</p>
+                  <!-- <h1 class="font-bold text-gray-700 text-4xl">Jobick</h1> -->
+                  <!-- <p class="text-sm">Job Admin Dashboard</p> -->
                 </div>
               </div>
               <div class="mt-4">
-                Please send exact amount: <br />
-                0.15050000 BTC <br />
-                1DonateWffyhwAjskoEwXt83pHZxhLTr8H <br />
-                Current exchange rate 1BTC = $6590 USD
+                <span class="text-gray-500 text-sm"
+                  >Please send exact amount:</span
+                >
+                <br />
+                <p class="font-bold text-gray-500 text-sm">
+                  0.15050000 BTC <br />
+                  1DonateWffyhwAjskoEwXt83pHZxhLTr8H <br />
+                </p>
+                <p class="text-gray-500 text-sm">
+                  Current exchange rate 1BTC = $6590 USD
+                </p>
               </div>
             </div>
             <div>
@@ -153,68 +391,80 @@
 
         <!-- item section  -->
         <div class="overflow-x-auto mt-12">
-          <table class="table-auto border-collapse w-full">
+          <table class="table-auto border-collapse w-full text-gray-500">
             <thead>
-              <tr>
-                <th class="px-4 py-2 bg-gray-200 border">Item</th>
-                <th class="px-4 py-2 bg-gray-200 border">Description</th>
-                <th class="px-4 py-2 bg-gray-200 border">Unit Cost</th>
-                <th class="px-4 py-2 bg-gray-200 border">Qty</th>
-                <th class="px-4 py-2 bg-gray-200 border">Total</th>
+              <tr class="text-gray-400">
+                <th class="px-4 py-2">#</th>
+                <th class="pl-4 py-2">Item</th>
+                <th class="px-4 py-2">Description</th>
+                <th class="px-4 py-2">Unit Cost</th>
+                <th class="px-4 py-2">Qty</th>
+                <th class="px-4 py-2">Total</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td class="px-4 py-2 border">Origin License</td>
-                <td class="px-4 py-2 border">Extended License</td>
-                <td class="px-4 py-2 border">$999,00</td>
-                <td class="px-4 py-2 border">1</td>
-                <td class="px-4 py-2 border">$999,00</td>
+                <td class="px-4 py-2 bg-gray-200">1</td>
+                <td class="pl-20 py-2 bg-gray-200">Origin License</td>
+                <td class="pl-40 py-2 bg-gray-200">Extended License</td>
+                <td class="px-4 py-2 bg-gray-200">$999,00</td>
+                <td class="px-4 py-2 bg-gray-200">1</td>
+                <td class="px-4 py-2 bg-gray-200 text-sm">$999,00</td>
               </tr>
               <tr>
-                <td class="px-4 py-2 border">Custom Services</td>
-                <td class="px-4 py-2 border">
+                <td class="px-4 py-2">2</td>
+                <td class="pl-20 py-2">Custom Services</td>
+                <td class="pl-40 py-2">
                   Installation and Customization (cost per hour)
                 </td>
-                <td class="px-4 py-2 border">$150,00</td>
-                <td class="px-4 py-2 border">20</td>
-                <td class="px-4 py-2 border">$3,000,00</td>
+                <td class="px-4 py-2">$150,00</td>
+                <td class="px-4 py-2">20</td>
+                <td class="px-4 py-2 text-sm">$3,000,00</td>
               </tr>
               <tr>
-                <td class="px-4 py-2 border">Hosting</td>
-                <td class="px-4 py-2 border">1 year subscription</td>
-                <td class="px-4 py-2 border">$499,00</td>
-                <td class="px-4 py-2 border">1</td>
-                <td class="px-4 py-2 border">$499,00</td>
+                <td class="px-4 py-2 bg-gray-200">3</td>
+                <td class="pl-20 py-2 bg-gray-200">Hosting</td>
+                <td class="pl-40 py-2 bg-gray-200">1 year subscription</td>
+                <td class="px-4 py-2 bg-gray-200">$499,00</td>
+                <td class="px-4 py-2 bg-gray-200">1</td>
+                <td class="px-4 py-2 bg-gray-200 text-sm">$499,00</td>
               </tr>
               <tr>
-                <td class="px-4 py-2 border">Platinum Support</td>
-                <td class="px-4 py-2 border">1 year subscription 24/7</td>
-                <td class="px-4 py-2 border">$3,999,00</td>
-                <td class="px-4 py-2 border">1</td>
-                <td class="px-4 py-2 border">$3,999,00</td>
+                <td class="px-4 py-2">4</td>
+                <td class="pl-20 py-2">Platinum Support</td>
+                <td class="pl-40 py-2">1 year subscription 24/7</td>
+                <td class="px-4 py-2">$3,999,00</td>
+                <td class="px-4 py-2">1</td>
+                <td class="px-4 py-2 text-sm">$3,999,00</td>
               </tr>
             </tbody>
           </table>
         </div>
-        <div class="flex justify-between px-16">
+        <div class="flex justify-between px-10">
           <div></div>
-          <div>
-            <div class="flex justify-between">
-              <p>Subtotal</p>
-              <p>$8.497,00</p>
+          <div class="text-gray-600">
+            <div class="flex justify-between mt-5">
+              <p class="font-bold">Subtotal</p>
+              <p class="text-sm">$8.497,00</p>
             </div>
+            <hr class="mt-3" />
             <div class="flex justify-between">
-              <p>Subtotal</p>
-              <p>$8.497,00</p>
+              <p class="font-bold">Discount (20%)</p>
+              <p class="text-sm">$1,699,40</p>
             </div>
+            <hr class="mt-3" />
             <div class="flex justify-between">
-              <p>Subtotal</p>
-              <p>$8.497,00</p>
+              <p class="font-bold">VAT (10%)</p>
+              <p class="text-sm">$679,76</p>
             </div>
-            <div class="flex justify-between gap-48">
-              <p>Subtotal</p>
-              <p>$8.497,00</p>
+            <hr class="mt-3" />
+            <hr />
+            <div class="flex justify-between gap-20">
+              <p class="font-bold">Total</p>
+              <p class="font-bold text-right">
+                $7.477,36 <br />
+                0.15050000 BTC
+              </p>
             </div>
           </div>
         </div>
