@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Jobick : Jobick</title>
+    <title>Jobick : Job Admin Dashboard</title>
     <link
       rel="icon"
       type="image/svg+xml"
@@ -131,7 +131,7 @@
                       class="rounded-lg text-white absolute -mt-4 h-5 w-5 ml-1"
                       style="background-color: #ea163d"
                     >
-                      3
+                      4
                     </button>
                     <i
                       onclick="toggleItemList()"
@@ -437,14 +437,8 @@
 
         <div class="flex justify-between mt-8 p-1">
           <p><i class="fa fa-flag text-red-500" aria-hidden="true"></i></p>
-          <div class="font-bold text-red-500">
-            <p>Jobs</p>
-            <p><i class="fa fa-arrow-circle-down" aria-hidden="true"></i></p>
-            <p class="cursor-pointer">
-              <a href="http://127.0.0.1:58572/new-job.html">new job</a>
-            </p>
-          </div>
-          <p class="bg-red-500 text-white p-1 rounded-md text-sm h-8">New</p>
+          <p class="font-bold text-red-500">Jobs</p>
+          <p class="bg-red-500 text-white p-1 rounded-md text-sm">New</p>
           <p>
             <i class="fa fa-step-forward text-red-500" aria-hidden="true"></i>
           </p>
@@ -487,168 +481,24 @@
         <div
           class="bg-white text-black dark:bg-gray-900 mr-24 text-xl font-semibold p-4 w-10/12 mx-auto px-6 rounded-md mt-10 text-gray-500"
         >
-          <span class="text-orange-500">Layout</span> / Blank
+          <span class="text-orange-500">Advanced /</span> Toastr
         </div>
 
         <!-- invoice details -->
         <div
-          class="bg-white text-black dark:bg-gray-900 mr-24 p-4 w-10/12 mx-auto px-6 rounded-md mt-10"
+          class="bg-white text-black dark:bg-gray-900 ml-20 mr-24 p-4 mx-auto px-6 rounded-md mt-10"
+          style="width: 854px"
         >
           <div class="flex justify-between items-center">
-            <p class="text-gray-400 text-sm">Invoice</p>
-            <p class="font-bold text-gray-500 text-sm">01/01/01/2018</p>
-            <p class="text-gray-400 text-sm">
-              <span class="font-bold text-gray-500">Status</span>: Pending
-            </p>
+            <p class="text-2xl font-bold">Toastr</p>
           </div>
           <hr class="mt-8" />
-
-          <!-- form to jobick details -->
-          <div class="flex justify-between items-center">
-            <div>
-              <p class="">From:</p>
-              <span class="font-bold text-gray-500">Webz Poland</span> <br />
-              <p class="text-sm text-gray-400">
-                Madalinskiego 8 <br />
-                71-101 Szczecin, Poland <br />Email: info@webz.com.pl
-                <br />Phone: +48 444 666 3333
-              </p>
-            </div>
-            <div>
-              <p class="">To:</p>
-              <span class="font-bold text-gray-500">Bob Mart</span> <br />
-              <p class="text-sm text-gray-400">
-                Attn: Daniel Marek <br />
-                43-190 Mikolow, Poland <br />
-                Email: marek@daniel.com <br />
-                Phone: +48 123 456 789 <br />
-              </p>
-            </div>
-
-            <div class="flex justify-between items-center">
-              <div>
-                <div class="flex items-center gap-3 mt-10">
-                  <div>
-                    <img src="https://i.ibb.co/sjfH5Bk/logo.png" alt="pic" />
-                  </div>
-                  <div>
-                    <!-- <h1 class="font-bold text-gray-700 text-4xl">Jobick</h1> -->
-                    <!-- <p class="text-sm">Job Admin Dashboard</p> -->
-                  </div>
-                </div>
-                <div class="mt-4">
-                  <span class="text-gray-500 text-sm"
-                    >Please send exact amount:</span
-                  >
-                  <br />
-                  <p class="font-bold text-gray-500 text-sm">
-                    0.15050000 BTC <br />
-                    1DonateWffyhwAjskoEwXt83pHZxhLTr8H <br />
-                  </p>
-                  <p class="text-gray-500 text-sm">
-                    Current exchange rate 1BTC = $6590 USD
-                  </p>
-                </div>
-              </div>
-              <div>
-                <img
-                  class="w-20 h-20"
-                  src="https://i.ibb.co/sqz9v2M/qr.png"
-                  alt="photo"
-                />
-              </div>
-            </div>
-          </div>
-
-          <!-- item section  -->
-          <div class="overflow-x-auto mt-12">
-            <table class="table-auto border-collapse w-full text-gray-500">
-              <thead>
-                <tr class="text-gray-400">
-                  <th class="px-4 py-2">#</th>
-                  <th class="pl-4 py-2">Item</th>
-                  <th class="px-4 py-2">Description</th>
-                  <th class="px-4 py-2">Unit Cost</th>
-                  <th class="px-4 py-2">Qty</th>
-                  <th class="px-4 py-2">Total</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td class="px-4 py-2 bg-gray-200 dark:bg-black">1</td>
-                  <td class="pl-20 py-2 bg-gray-200 dark:bg-black">
-                    Origin License
-                  </td>
-                  <td class="pl-40 py-2 bg-gray-200 dark:bg-black">
-                    Extended License
-                  </td>
-                  <td class="px-4 py-2 bg-gray-200 dark:bg-black">$999,00</td>
-                  <td class="px-4 py-2 bg-gray-200 dark:bg-black">1</td>
-                  <td class="px-4 py-2 bg-gray-200 text-sm dark:bg-black">
-                    $999,00
-                  </td>
-                </tr>
-                <tr>
-                  <td class="px-4 py-2">2</td>
-                  <td class="pl-20 py-2">Custom Services</td>
-                  <td class="pl-40 py-2">
-                    Installation and Customization (cost per hour)
-                  </td>
-                  <td class="px-4 py-2">$150,00</td>
-                  <td class="px-4 py-2">20</td>
-                  <td class="px-4 py-2 text-sm">$3,000,00</td>
-                </tr>
-                <tr>
-                  <td class="px-4 py-2 bg-gray-200 dark:bg-black">3</td>
-                  <td class="pl-20 py-2 bg-gray-200 dark:bg-black">Hosting</td>
-                  <td class="pl-40 py-2 bg-gray-200 dark:bg-black">
-                    1 year subscription
-                  </td>
-                  <td class="px-4 py-2 bg-gray-200 dark:bg-black">$499,00</td>
-                  <td class="px-4 py-2 bg-gray-200 dark:bg-black">1</td>
-                  <td class="px-4 py-2 bg-gray-200 text-sm dark:bg-black">
-                    $499,00
-                  </td>
-                </tr>
-                <tr>
-                  <td class="px-4 py-2">4</td>
-                  <td class="pl-20 py-2">Platinum Support</td>
-                  <td class="pl-40 py-2">1 year subscription 24/7</td>
-                  <td class="px-4 py-2">$3,999,00</td>
-                  <td class="px-4 py-2">1</td>
-                  <td class="px-4 py-2 text-sm">$3,999,00</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="flex justify-between px-10">
-            <div></div>
-            <div class="text-gray-600">
-              <div class="flex justify-between mt-5">
-                <p class="font-bold">Subtotal</p>
-                <p class="text-sm">$8.497,00</p>
-              </div>
-              <hr class="mt-3" />
-              <div class="flex justify-between">
-                <p class="font-bold">Discount (20%)</p>
-                <p class="text-sm">$1,699,40</p>
-              </div>
-              <hr class="mt-3" />
-              <div class="flex justify-between">
-                <p class="font-bold">VAT (10%)</p>
-                <p class="text-sm">$679,76</p>
-              </div>
-              <hr class="mt-3" />
-              <hr />
-              <div class="flex justify-between gap-20">
-                <p class="font-bold">Total</p>
-                <p class="font-bold text-right">
-                  $7.477,36 <br />
-                  0.15050000 BTC
-                </p>
-              </div>
-            </div>
-          </div>
+          <button
+            class="rounded-lg p-2 text-white mt-10"
+            style="background-color: #ea163d"
+          >
+            Error
+          </button>
         </div>
       </div>
     </div>
